@@ -14,21 +14,26 @@ const weatherIconUrl2 = "@2x.png";
 const nominatimUrl = "https://nominatim.openstreetmap.org/search?format=json&city=";
 
 // Local Storage Import
-if (localStorage.getItem('lastSearch') == null) {
-    userLocQuery.innerText = "";
+if (localStorage.getItem('lastSearch') == null) {                   // Conditional to check if any localStorage exists from previous use
+    userLocQuery.innerText = "";                                    // Where no localStorage exists for previous user search set input field to blank
 } else {
-    userLocQuery.innerText = localStorage.getItem('lastSearch');
+    userLocQuery.innerText = localStorage.getItem('lastSearch');    // Set input field to last user searched value
+}
+
+// [Nominatim] Coordinates for User Input
+function coordinatesLookup () {
+
 }
 
 // Local Storage - Save Last User Search
 function lastSearch () {
-    localStorage.setItem('lastSearch', userLocQuery.innerText);
+    localStorage.setItem('lastSearch', userLocQuery.innerText); // Save user input in localStorage
 }
 
 // User Search Call
 goBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    lastSearch(userLocQuery.innerText);
-    coordinatesLookup(nominatimUrl, userLocQuery.innerText);
+    lastSearch(userLocQuery.innerText);                         // Pass the user input to be saved in localStorage
+    coordinatesLookup(nominatimUrl, userLocQuery.innerText);    // Pass the user input to the coordinate lookup API
 })
