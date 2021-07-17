@@ -4,9 +4,7 @@ const goBtn = document.getElementById('searchBtn');
 
 // One Call API - Open Weather
 const apiKey = "83eafbf0136fddba078f207e73c99163"; // Ideally a separate backend would obfuscate this but for use in Github pages it remains
-const weatherUrl1 = "https://api.openweathermap.org/data/2.5/onecall?lat=";
-const weatherUrl2 = "&lon=";
-const weatherUrl3 = "&units=metric&appid=" + apiKey;
+/* Template literal for api call url construction housed in coordinatesLookup function */
 const weatherIconUrl1 = "http://openweathermap.org/img/wn/";
 const weatherIconUrl2 = "@2x.png";
 
@@ -20,6 +18,13 @@ if (localStorage.getItem('lastSearch') == null) {                   // Condition
     userLocQuery.innerText = localStorage.getItem('lastSearch');    // Set input field to last user searched value
 }
 
+// [Open Weather] Weather data for coordinates
+function weatherLookup (weatherUrl) {
+    fetch(weatherUrl)
+    .then(res => res.json())
+    .then(data => console.log(data));
+}
+
 // [Nominatim] Coordinates for User Input
 function coordinatesLookup (url, city) {    // Passed in NominatimUrl and user input
     fetch(url + city)                       // Call the Nominatim Api with the completed url
@@ -28,7 +33,9 @@ function coordinatesLookup (url, city) {    // Passed in NominatimUrl and user i
         let lat = data[0].lat;
         let lon = data[0].lon;
 
-        weatherLookup(lat, lon);            // Call the Open Weather Api with the returned Latitude and Longitude values
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;    // Template Literal for API call construction
+
+        weatherLookup(weatherUrl);            // Call the Open Weather Api with the returned Latitude and Longitude values input into the API call
     })
 }
 
