@@ -12,3 +12,10 @@ const weatherIconUrl2 = "@2x.png";
 
 // Nominatim Geosearch
 const nominatimUrl = "https://nominatim.openstreetmap.org/search?format=json&city=";
+
+// User Search Call
+goBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    coordinatesLookup(nominatimUrl, userLocQuery.innerText);
+})
