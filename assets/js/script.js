@@ -22,7 +22,9 @@ if (localStorage.getItem('lastSearch') == null) {                   // Condition
 function weatherLookup (weatherUrl) {
     fetch(weatherUrl)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => localStorage.setItem('weather', JSON.stringify(data))); // Store the returned object containing the weather data in localStorage
+
+    window.location.href = "today.html";
 }
 
 // [Nominatim] Coordinates for User Input
