@@ -1,0 +1,69 @@
+:root {
+    --background: #31343d;
+    --fontWhite: white;
+}
+
+body {
+    background: var(--background);
+}
+
+/* Flex Box Styling */
+.centreFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Menu Styling */
+h1 {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--fontWhite);    
+}
+
+#userLocQuery {
+    background: white;
+    padding: 10px 10px; /* X-axis Y-axis */
+    margin: 20px; 
+
+    text-align: center;
+        
+    
+    line-height: 20px;
+    font-size: 40px;
+}
+
+#searchBtn {
+    padding: 10px 40px;
+}
+
+i {
+    color: white;
+}
+
+/* Arrow Animation
+#leftArrow {
+    margin-right: 0px;
+}
+
+#rightArrow {
+    margin-left: 0px;
+}
+
+#searchFlexRow:focus-within #leftArrow {
+    margin-right: 10px;
+    transition: margin-right 0.5;
+}
+
+#searchFlexRow:focus-within #rightArrow {
+    margin-right: 10px;
+    transition: margin-left 0.5;
+} */

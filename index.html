@@ -4,30 +4,28 @@
     <meta charset="UTF-8">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <script src="https://kit.fontawesome.com/b7f2778b98.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 <head>
 
 <body>
-    <header>
-        <nav class="flexContainer">
-            <h1>Weather Dashboard</h1>
-        </nav>
-    </header>
 
-<div class="flexBody">
-    <aside class="flexColumn20">
-        <h2>Search for a City:</h2>
-        <textarea id="userLocQuery" placeholder="Melbourne..."></textarea>
-        <button id="searchBtn">Search</button>
-        <hr>
-        <ul id="history"></ul>
-    </aside>
 
-    <main class="flexColumn80">
-        <div id="today"></div>
-        <div id="forecast"></div>
-    </main>
-</div>
+<main>
+    <!-- Central Flex Area - Search Bar -->
+    <section>
+        <div class="centreFlex">
+            <label for="userLocQuery"><h1>Search for your City:</h1></label>
+            <div id="searchFlexRow" class="flexRow">
+                <i id="leftArrow" class="fas fa-arrow-right"></i>
+                <div id="userLocQuery" contenteditable="true" autofocus></div>
+                <i id="rightArrow" class="fas fa-arrow-left"></i>
+            </div>
+            <!-- <textarea id="userLocQuery"></textarea> -->
+            <button id="searchBtn">Search</button>
+        </div>
+    </section>
+</main>
 
 </body>
 
