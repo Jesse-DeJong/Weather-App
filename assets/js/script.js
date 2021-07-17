@@ -21,8 +21,15 @@ if (localStorage.getItem('lastSearch') == null) {                   // Condition
 }
 
 // [Nominatim] Coordinates for User Input
-function coordinatesLookup () {
+function coordinatesLookup (url, city) {    // Passed in NominatimUrl and user input
+    fetch(url + city)                       // Call the Nominatim Api with the completed url
+    .then(res => res.json())                // Return the JSON response
+    .then(function (data) {                 // Extract the Latitude and Longitude of the user input city
+        let lat = data[0].lat;
+        let lon = data[0].lon;
 
+        weatherLookup(lat, lon);            // Call the Open Weather Api with the returned Latitude and Longitude values
+    })
 }
 
 // Local Storage - Save Last User Search
