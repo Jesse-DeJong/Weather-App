@@ -49,21 +49,31 @@ i {
     color: white;
 }
 
-/* Arrow Animation
+/* Arrow Animation */
 #leftArrow {
-    margin-right: 0px;
+    animation: focusLeft 1s infinite;
+    animation-direction: alternate;
 }
 
 #rightArrow {
-    margin-left: 0px;
+    animation: focusRight 1s infinite;
+    animation-direction: alternate;
 }
 
-#searchFlexRow:focus-within #leftArrow {
-    margin-right: 10px;
-    transition: margin-right 0.5;
+@keyframes focusLeft {
+    from {
+        margin-right: 0px;
+    }
+    to {
+        margin-right: 10px;
+    }
 }
 
-#searchFlexRow:focus-within #rightArrow {
-    margin-right: 10px;
-    transition: margin-left 0.5;
-} */
+@keyframes focusRight {
+    from {
+        margin-left: 0px;
+    }
+    to {
+        margin-left: 10px;
+    }
+}
