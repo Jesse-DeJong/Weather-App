@@ -13,9 +13,22 @@ const weatherIconUrl2 = "@2x.png";
 // Nominatim Geosearch
 const nominatimUrl = "https://nominatim.openstreetmap.org/search?format=json&city=";
 
+// Local Storage Import
+if (localStorage.getItem('lastSearch') == null) {
+    userLocQuery.innerText = "";
+} else {
+    userLocQuery.innerText = localStorage.getItem('lastSearch');
+}
+
+// Local Storage - Save Last User Search
+function lastSearch () {
+    localStorage.setItem('lastSearch', userLocQuery.innerText);
+}
+
 // User Search Call
 goBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
+    lastSearch(userLocQuery.innerText);
     coordinatesLookup(nominatimUrl, userLocQuery.innerText);
 })
